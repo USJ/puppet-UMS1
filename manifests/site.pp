@@ -1,14 +1,3 @@
-# node '*.symfony.vagrant.usj.edu.mo' {
-#     include nodejs
-#     class {'mongodb':
-#         enable_10gen => true,
-#     }
-#     user { 'leongmarco':
-#         ensure => present,
-#         password => '$6$OYSQzISw$VxvgJplybBxs41.ChAKF0klFVGodxu.biFnSyLBeJjWLpFexm86vNsVqcTg4tuzSRfN1VCjaVkQu5ySBSewkN1',
-#     } 
-# }
-
 # node for MyUSJ
 node 'my-2.usj.edu.mo' {
     $utils = [ 'curl', 'git', 'acl', 'vim' ]

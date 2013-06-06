@@ -12,9 +12,8 @@ class apache {
   }
 
   # Create the logs folder to put the log files of the vhost
-  file {'myusj-vhost-logs':
+  file { [ '/srv/www', '/srv/www/myusj', '/srv/www/myusj/logs', '/srv/www/myusj/public_html' ]:
     ensure => 'directory',
-    path   => '/srv/www/myusj/logs',
   }
 
   # Create a virtual host file for our website
@@ -25,7 +24,7 @@ class apache {
     group   => 'root',
     content => template('apache/vhost.erb'),
     # Make sure apache is installed before creating the file
-    require => [ Package['apache2'], File ['myusj-vhost-logs'] ],
+    require => [ Package['apache2'], File ['/srv/www/myusj/logs'] ],
   }
 
   # Enable our virtual host
