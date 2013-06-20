@@ -1,3 +1,12 @@
+node 'web-common' {
+    include users::web
+    class { 'sudo': }
+    class { 'ntp': }
+    sudo::conf { '%admin': content => '%admin ALL=(ALL) ALL'}
+    sudo::conf { '%usjnetadm': content => '%usjnetadm ALL=(ALL) ALL'}
+    sudo::conf { '%usjwebadm': content => '%usjwebadm ALL=(ALL) ALL'}
+}
+
 # node for MyUSJ
 node 'my-2.usj.edu.mo' {
     $utils = [ 'curl', 'git', 'acl', 'vim' ]

@@ -44,13 +44,13 @@ class php {
     notify  => Service['apache2'],
   }
 
-  # Create a php config file that meets the symfony2 requirements
-  file {'symfony2-php-conf':
+  # Create a php config file that meets the symfony requirements
+  file {'symfony-php-conf':
     ensure  => present,
-    path    => '/etc/php5/conf.d/symfony2-php-conf.ini',
+    path    => '/etc/php5/conf.d/symfony-php-conf.ini',
     owner   => 'root',
     group   => 'root',
-    content => template('php/symfony2-php-conf.erb'),
+    content => template('php/symfony-php-conf.erb'),
     require => Package['php5'],
   }
 }
